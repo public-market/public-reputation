@@ -9,7 +9,7 @@ Public Market brings something new and important to online commerce - a portable
 
 ## Technical Details
 
-Public protection platform is Rails API application provides the following endpoints:
+Public protection platform is Rails API application provides the following JSON:API (http://jsonapi.org/) endpoints:
 
 `GET /reputations/:id`
 * Get seller reputation
@@ -19,6 +19,7 @@ Public protection platform is Rails API application provides the following endpo
 
 `POST /ratings`
 * Add a new rating
+* Clients MUST provide `X-Api-Key` header
 
 ## LICENSE
 

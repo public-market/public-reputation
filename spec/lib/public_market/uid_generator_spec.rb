@@ -30,10 +30,10 @@ describe PublicMarket::UIDGenerator do
 
       it 'writes attribute value' do
         object = described_class.new(options.merge(name => value_a))
-        expect { object.public_send(:"#{name}=", value_b) }.
-          to change { object.public_send(name) }.
-          from(value_a).
-          to(value_b)
+        expect { object.public_send(:"#{name}=", value_b) }
+          .to change { object.public_send(name) }
+          .from(value_a)
+          .to(value_b)
       end
     end
   end

@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe Rating, type: :model do
   it { should belong_to(:sender) }
   it { should belong_to(:receiver) }
+  it { should belong_to(:api_user) }
 
   it { should validate_presence_of(:value) }
 

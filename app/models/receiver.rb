@@ -6,5 +6,5 @@ class Receiver < ApplicationRecord
 
   has_many :ratings, dependent: :destroy
 
-  validates_presence_of :uid
+  validates :uid, presence: true
 end

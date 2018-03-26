@@ -15,26 +15,40 @@ ActiveRecord::Schema.define(version: 20180323073332) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "api_users", force: :cascade do |t|
+    t.string "url", null: false
+    t.string "api_key", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["api_key"], name: "index_api_users_on_api_key"
+  end
+
   create_table "ratings", force: :cascade do |t|
     t.string "uid", null: false
+    t.bigint "api_user_id", null: false
     t.bigint "sender_id", null: false
     t.bigint "receiver_id", null: false
     t.integer "value", null: false
     t.datetime "created_at", null: false
+    t.index ["api_user_id"], name: "index_ratings_on_api_user_id"
     t.index ["receiver_id"], name: "index_ratings_on_receiver_id"
     t.index ["sender_id"], name: "index_ratings_on_sender_id"
+    t.index ["uid"], name: "index_ratings_on_uid"
   end
 
   create_table "receivers", force: :cascade do |t|
     t.string "uid", null: false
     t.datetime "created_at", null: false
+    t.index ["uid"], name: "index_receivers_on_uid"
   end
 
   create_table "senders", force: :cascade do |t|
     t.string "uid", null: false
     t.datetime "created_at", null: false
+    t.index ["uid"], name: "index_senders_on_uid"
   end
 
+  add_foreign_key "ratings", "api_users"
   add_foreign_key "ratings", "receivers"
   add_foreign_key "ratings", "senders"
 end
