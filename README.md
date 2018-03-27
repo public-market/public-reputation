@@ -1,7 +1,7 @@
 # Public Market Protection Platform
 
-[![pipeline status](https://gitlab.com/publicmarket/global-reputation/badges/ci/pipeline.svg)](https://gitlab.com/publicmarket/global-reputation/commits/master)
-[![coverage report](https://gitlab.com/publicmarket/global-reputation/badges/ci/coverage.svg)](https://gitlab.com/publicmarket/global-reputation/commits/master)
+[![pipeline status](https://gitlab.com/publicmarket/global-reputation/badges/master/pipeline.svg)](https://gitlab.com/publicmarket/global-reputation/commits/master)
+[![coverage report](https://gitlab.com/publicmarket/global-reputation/badges/master/coverage.svg)](https://gitlab.com/publicmarket/global-reputation/commits/master)
 
 Some of the biggest brands and most important companies in the world have been built on the back of the reputation of their products & services. Online commerce made seller reputation - based on real customer reviews - transparent, visible, and verified against actual purchases for the first time. This was a watershed innovation in the mainstreaming of eCommerce, as the greatest inhibitor to buying online was the risk that a seller will not deliver the product, as described, in a timely manner, with high quality customer service.
 
