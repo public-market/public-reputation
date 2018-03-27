@@ -10,6 +10,6 @@ RUN gem install bundler --no-ri --no-rdoc -v "$BUNDLER_VERSION"
 COPY Gemfile /app
 COPY Gemfile.lock /app
 RUN ls -la
-RUN bundle install --deployment --jobs 4 --without development production
+RUN bundle install --deployment --jobs 4
 
 COPY . /app
