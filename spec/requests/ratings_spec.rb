@@ -47,6 +47,14 @@ RSpec.describe 'Ratings API', type: :request do
       it { expect(response).to have_http_status(401) }
     end
 
+    context 'when params are invalid' do
+      let(:attributes) { {} }
+
+      it { expect(response).to have_http_status(422) }
+      it { expect(json).to include('errors') }
+      it { expect(json.dig('errors', 0, 'source', 'pointer')).to match('value') }
+    end
+
     context 'when sender and receiver are unknown' do
       let(:attributes) { { value: 1 } }
 
