@@ -9,4 +9,10 @@ class Rating < ApplicationRecord
   belongs_to :receiver
 
   validates :value, presence: true
+
+  def modify!(new_value)
+    return if new_value.blank?
+
+    update(modification: new_value)
+  end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180323073332) do
+ActiveRecord::Schema.define(version: 20180328085550) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,8 @@ ActiveRecord::Schema.define(version: 20180323073332) do
     t.bigint "receiver_id", null: false
     t.integer "value", null: false
     t.datetime "created_at", null: false
+    t.integer "modification"
+    t.datetime "updated_at"
     t.index ["api_user_id"], name: "index_ratings_on_api_user_id"
     t.index ["receiver_id"], name: "index_ratings_on_receiver_id"
     t.index ["sender_id"], name: "index_ratings_on_sender_id"

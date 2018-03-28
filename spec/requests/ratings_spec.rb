@@ -94,4 +94,50 @@ RSpec.describe 'Ratings API', type: :request do
       it { expect(subject.sender).to eq(sender) }
     end
   end
+
+  describe 'PUT /ratings/:id' do
+    subject { Rating.last }
+
+    let(:rating) { create(:rating) }
+    let(:api_key) { rating.api_user.api_key }
+    let(:uid) { rating.uid }
+    let(:attributes) { { value: -1 } }
+
+    before do
+      put api_v1_rating_path(uid),
+          params: {
+            data: {
+              type: 'rating',
+              attributes: attributes
+            }
+          },
+          headers: { 'X-Api-Key' => api_key }
+    end
+
+    context 'when modify value correctly' do
+      it { expect(response).to have_http_status(200) }
+      it { expect(subject.modification).to eq(-1) }
+    end
+
+    context 'when rating uid is wrong' do
+      let(:uid) { 'WRONG' }
+
+      it { expect(response).to have_http_status(404) }
+      it { expect(subject.modification).to be_blank }
+    end
+
+    context 'when api user is different' do
+      let(:api_key) { create(:api_user).api_key }
+
+      it { expect(response).to have_http_status(404) }
+      it { expect(subject.modification).to be_blank }
+    end
+
+    context 'when no value provided' do
+      let(:attributes) { {} }
+
+      it { expect(response).to have_http_status(200) }
+      it { expect(subject.modification).to be_blank }
+    end
+  end
 end

@@ -4,7 +4,8 @@ RSpec.describe 'Reputations API', type: :request do
   describe 'GET /reputations/:id' do
     let(:receiver) { create(:receiver) }
     let!(:positive_ratings) { create_list(:rating, 5, receiver: receiver, value: 1) }
-    let!(:megative_ratings) { create_list(:rating, 3, receiver: receiver, value: -1) }
+    let!(:negative_ratings) { create_list(:rating, 3, receiver: receiver, value: -1) }
+    let!(:modified_ratings) { create_list(:rating, 2, receiver: receiver, value: -1, modification: 1) }
 
     before { get api_v1_reputation_path(uid) }
 
@@ -22,7 +23,7 @@ RSpec.describe 'Reputations API', type: :request do
       it { expect(json).to include('data') }
       it { expect(json['data']).to include('id' => uid, 'type' => 'reputation') }
       it { expect(json['data']).to include('attributes') }
-      it { expect(json['data']['attributes']).to include('positive' => 5, 'negative' => 3) }
+      it { expect(json['data']['attributes']).to include('ratings' => 10, 'score' => 5.0 / 8) }
     end
   end
 end

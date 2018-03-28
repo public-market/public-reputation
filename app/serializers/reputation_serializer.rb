@@ -4,11 +4,14 @@ class ReputationSerializer
   set_id :uid
   set_type :reputation
 
-  attribute :positive do |receiver|
-    receiver.ratings.where(value: 1).count
+  attribute :ratings do |receiver|
+    receiver.ratings.count
   end
 
-  attribute :negative do |receiver|
-    receiver.ratings.where(value: -1).count
+  attribute :score do |receiver|
+    ratings = receiver.ratings.where(modification: nil)
+    positive_ratings = ratings.where(value: 1)
+
+    1.0 * positive_ratings.count / ratings.count
   end
 end

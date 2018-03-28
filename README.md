@@ -23,6 +23,10 @@ Public protection platform is Rails API application provides the following JSON:
 * Add a new rating
 * Clients MUST provide `X-Api-Key` header
 
+`PUT /ratings/:id`
+* Modify existing rating
+* Clients MUST provide `X-Api-Key` header
+
 ## LICENSE
 
 Copyright (c) 2018 Abundance Labs, Inc., released under the LGPL
