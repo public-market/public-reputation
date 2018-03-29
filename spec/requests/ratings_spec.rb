@@ -20,7 +20,7 @@ RSpec.describe 'Ratings API', type: :request do
       it { expect(json).to include('data') }
       it { expect(json['data']).to include('id' => uid, 'type' => 'rating') }
       it { expect(json['data']).to include('attributes') }
-      it { expect(json['data']['attributes']).to include('sender', 'receiver', 'value', 'created_at') }
+      it { expect(json['data']['attributes']).to include('sender', 'receiver', 'value', 'modification', 'created_at') }
     end
   end
 
@@ -45,6 +45,7 @@ RSpec.describe 'Ratings API', type: :request do
       let(:api_key) { nil }
 
       it { expect(response).to have_http_status(401) }
+      it { expect(json).to include('errors' => [include('status', 'title')]) }
     end
 
     context 'when params are invalid' do

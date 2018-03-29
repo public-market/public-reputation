@@ -8,7 +8,7 @@ require 'rspec/rails'
 require 'database_cleaner'
 
 require 'simplecov'
-SimpleCov.start do
+SimpleCov.start(:rails) do
   add_filter 'vendor/'
 end
 

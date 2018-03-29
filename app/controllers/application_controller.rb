@@ -17,6 +17,7 @@ class ApplicationController < ActionController::API
   end
 
   def render_unauthorized
-    render json: 'Bad credentials', status: 401
+    render json: { errors: [{ status: 401, title: 'Bad credentials' }] },
+           status: :unauthorized
   end
 end
