@@ -25,5 +25,14 @@ RSpec.describe 'Reputations API', type: :request do
       it { expect(json['data']).to include('attributes') }
       it { expect(json['data']['attributes']).to include('ratings' => 10, 'score' => 5.0 / 8) }
     end
+
+    context 'when all ratings with modifications' do
+      let(:new_receiver) { create(:receiver) }
+      let!(:modified_ratings) { create_list(:rating, 2, receiver: new_receiver, value: -1, modification: 1) }
+      let(:uid) { new_receiver.uid }
+
+      it { expect(response).to have_http_status(200) }
+      it { expect(json['data']['attributes']).to include('ratings' => 2, 'score' => nil) }
+    end
   end
 end
