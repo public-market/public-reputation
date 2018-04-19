@@ -1,0 +1,24 @@
+version: '2'
+plugins:
+  # common
+  fixme:
+    enabled: true
+  git-legal:
+    enabled: true
+  markdownlint:
+    enabled: true
+  shellcheck:
+    enabled: true
+  # ruby/rails
+  brakeman:
+    enabled: true
+  bundler-audit:
+    enabled: true
+  flog:
+    enabled: true
+  rubocop:
+    enabled: true
+    channel: rubocop-0-54 # https://github.com/codeclimate/codeclimate-rubocop/branches/all?utf8=%E2%9C%93&query=channel%2Frubocop
+
+exclude_patterns:
+- "db/"
