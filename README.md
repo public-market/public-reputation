@@ -1,7 +1,8 @@
 # Public Market Protection Platform
 
 [![pipeline status](https://gitlab.com/publicmarket/global-reputation/badges/master/pipeline.svg)](https://gitlab.com/publicmarket/global-reputation/commits/master)
-[![coverage report](https://gitlab.com/publicmarket/global-reputation/badges/master/coverage.svg)](https://gitlab.com/publicmarket/global-reputation/commits/master)
+[![Maintainability](https://api.codeclimate.com/v1/badges/17da0f6ce3df9d95581d/maintainability)](https://codeclimate.com/github/public-market/global-reputation/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/17da0f6ce3df9d95581d/test_coverage)](https://codeclimate.com/github/public-market/global-reputation/test_coverage)
 
 Some of the biggest brands and most important companies in the world have been built on the back of the reputation of their products & services. Online commerce made seller reputation - based on real customer reviews - transparent, visible, and verified against actual purchases for the first time. This was a watershed innovation in the mainstreaming of eCommerce, as the greatest inhibitor to buying online was the risk that a seller will not deliver the product, as described, in a timely manner, with high quality customer service.
 
@@ -11,19 +12,23 @@ Public Market brings something new and important to online commerce - a portable
 
 ## Technical Details
 
-Public protection platform is Rails API application provides the following JSON:API (http://jsonapi.org/) endpoints:
+Public protection platform is Rails API application provides the following JSON:API ([http://jsonapi.org/](http://jsonapi.org/)) endpoints:
 
 `GET /reputations/:id`
+
 * Get seller reputation
 
 `GET /ratings/:id`
+
 * Get rating by uid
 
 `POST /ratings`
+
 * Add a new rating
 * Clients MUST provide `X-Api-Key` header
 
 `PUT /ratings/:id`
+
 * Modify existing rating
 * Clients MUST provide `X-Api-Key` header
 
