@@ -27,11 +27,18 @@ rspec:
   cache:
     paths:
       - vendor/bundle
+      - cc-test-reporter
   variables:
     POSTGRES_DB: global_reputation_test
     DATABASE_URL: "postgresql://postgres:postgres@postgres:5432/$POSTGRES_DB"
     RAILS_ENV: test
   before_script:
+    # setup codeclimate test reporter
+    - wget -nc -O ./cc-test-reporter https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 || true
+    - chmod +x ./cc-test-reporter
+    - ./cc-test-reporter before-build
+    # setup rails test db
     - bundle exec rails db:migrate
   script:
     - bundle exec rspec
+    - ./cc-test-reporter after-build --coverage-input-type simplecov --exit-code $?
