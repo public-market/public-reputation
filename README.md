@@ -36,4 +36,4 @@ Public protection platform is Rails API application provides the following JSON:
 
 ## LICENSE
 
-Copyright (c) 2018 Abundance Labs, Inc., released under the LGPL
+Copyright (c) 2018 Public Market Foundation, released under the LGPL
