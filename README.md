@@ -1,6 +1,6 @@
 ![Public Market Foundation](.github/public_market_readme_banner_1024_big.png)
 
-# Public Market Protection Platform
+# Public Reputation System
 
 [![pipeline status](https://gitlab.com/publicmarket/global-reputation/badges/master/pipeline.svg)](https://gitlab.com/publicmarket/global-reputation/commits/master)
 [![Maintainability](https://api.codeclimate.com/v1/badges/861b511ce2527ac2866f/maintainability)](https://codeclimate.com/github/abundance-labs/global-reputation/maintainability)
