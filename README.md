@@ -1,3 +1,5 @@
+![Abundance Labs](.github/AbundanceLabs_readme_banner.png)
+
 # Public Market Protection Platform
 
 [![pipeline status](https://gitlab.com/publicmarket/global-reputation/badges/master/pipeline.svg)](https://gitlab.com/publicmarket/global-reputation/commits/master)
