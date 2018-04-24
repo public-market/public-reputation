@@ -1,4 +1,4 @@
-![Abundance Labs](.github/AbundanceLabs_readme_banner.png)
+![Public Market Foundation](.github/public_market_readme_banner_1024_big.png)
 
 # Public Market Protection Platform
 
