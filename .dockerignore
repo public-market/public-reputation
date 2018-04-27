@@ -1,0 +1,17 @@
+.DS_Store
+*.ds_store
+*.sh
+*.sql
+*.md
+
+.rspec
+.rubocop.yml
+
+.git
+
+coverage
+db/*.sqlite3
+db/*.sqlite3-journal
+tmp
+log/*
+spec
