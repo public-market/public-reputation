@@ -31,6 +31,7 @@ rspec:
   variables:
     POSTGRES_DB: global_reputation_test
     DATABASE_URL: "postgresql://postgres:postgres@postgres:5432/$POSTGRES_DB"
+    DATABASE_CLEANER_ALLOW_REMOTE_DATABASE_URL: 'true'
     RAILS_ENV: test
   before_script:
     # setup codeclimate test reporter
