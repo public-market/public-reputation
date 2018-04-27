@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 RSpec.describe 'Reputations API', type: :request do
   describe 'GET /reputations/:id' do
     let(:receiver) { create(:receiver) }

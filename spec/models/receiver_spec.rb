@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 RSpec.describe Receiver, type: :model do
   it { should have_many(:ratings).dependent(:destroy) }
 

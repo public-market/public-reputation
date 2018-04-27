@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 RSpec.describe 'Ratings API', type: :request do
   describe 'GET /ratings/:id' do
     let!(:rating) { create(:rating) }

@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 RSpec.describe ApiUser, type: :model do
   it { should validate_presence_of(:url) }
 

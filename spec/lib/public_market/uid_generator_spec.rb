@@ -1,4 +1,3 @@
-require 'rails_helper'
 require 'public_market/uid_generator'
 
 describe PublicMarket::UIDGenerator do
