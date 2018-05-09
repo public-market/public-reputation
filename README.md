@@ -1,20 +1,16 @@
 ![Public Market Foundation](.github/public_market_readme_banner_1024_big.png)
 
-# Public Reputation System
+# Public Reputation
 
 [![pipeline status](https://gitlab.com/publicmarket/global-reputation/badges/master/pipeline.svg)](https://gitlab.com/publicmarket/global-reputation/commits/master)
 [![Maintainability](https://api.codeclimate.com/v1/badges/3adc0b1ef907f0cabe30/maintainability)](https://codeclimate.com/github/public-market-foundation/public-reputation/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/3adc0b1ef907f0cabe30/test_coverage)](https://codeclimate.com/github/public-market-foundation/public-reputation/test_coverage)
 
-Some of the biggest brands and most important companies in the world have been built on the back of the reputation of their products & services. Online commerce made seller reputation - based on real customer reviews - transparent, visible, and verified against actual purchases for the first time. This was a watershed innovation in the mainstreaming of eCommerce, as the greatest inhibitor to buying online was the risk that a seller will not deliver the product, as described, in a timely manner, with high quality customer service.
-
-Unfortunately, eCommerce reputation has been dominated by private marketplaces such as eBay Feedback or Amazon Ratings. As a result, these reputations are not portable or aggregated. Rather, they are only valuable inside the marketplace itself. This non-portability creates further lock-in for sellers, as to move to another marketplace would require rebuilding their seller reputation from scratch. It also deepens the competitive moat for the monopoly marketplace, as upstart marketplaces must convince buyers to purchase from merchants without established reputations.
-
-Public Market brings something new and important to online commerce - a portable reputation score, based on verified identity, that can be used to conduct business anywhere. A seller’s Global Reputation Score can be integrated anywhere on the Internet (Craigslist or a merchant’s own eCommerce site, for example), further incentivizing sellers to join the Public Market network.
+Public Reputation is a portable reputation score, based on a verified identity, that can be used to conduct business anywhere. "Reputation" is fundamentally a facet of trust, which is required in order for a peer-to-peer online commerce system to operate.  Utilizing Blockchain for its inherent immutable nature ensures that Public Reputation is transparent, open, secure and accessible to anyone. Public Reputation will initially function as a score that changes over time as seller review scores are given by buyers. This reputation score is recorded to Blockchain and is “portable”, meaning it can be utilized across multiple online storefronts, or anywhere such information has value. No longer is “reputation” locked to a single marketplace or held proprietary by a single ecosystem.
 
 ## Technical Details
 
-Public protection platform is Rails API application provides the following JSON:API ([http://jsonapi.org/](http://jsonapi.org/)) endpoints:
+Public Reputation is a Rails API application providing the following JSON:API ([http://jsonapi.org/](http://jsonapi.org/)) endpoints:
 
 `GET /reputations/:id`
 
@@ -33,6 +29,14 @@ Public protection platform is Rails API application provides the following JSON:
 
 * Modify existing rating
 * Clients MUST provide `X-Api-Key` header
+
+## Contributing
+
+See [how you can help](.github/CONTRIBUTING.md).
+
+## Code of Conduct
+
+Public Market Foundation [Code of Conduct](.github/CODE_OF_CONDUCT.md).
 
 ## LICENSE
 
