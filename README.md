@@ -6,7 +6,41 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/3adc0b1ef907f0cabe30/maintainability)](https://codeclimate.com/github/public-market-foundation/public-reputation/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/3adc0b1ef907f0cabe30/test_coverage)](https://codeclimate.com/github/public-market-foundation/public-reputation/test_coverage)
 
-Public Reputation is a portable reputation score, based on a verified identity, that can be used to conduct business anywhere. "Reputation" is fundamentally a facet of trust, which is required in order for a peer-to-peer online commerce system to operate.  Utilizing Blockchain for its inherent immutable nature ensures that Public Reputation is transparent, open, secure and accessible to anyone. Public Reputation will initially function as a score that changes over time as seller review scores are given by buyers. This reputation score is recorded to Blockchain and is “portable”, meaning it can be utilized across multiple online storefronts, or anywhere such information has value. No longer is “reputation” locked to a single marketplace or held proprietary by a single ecosystem.
+ 
+#### A universal, portable trust protocol collecting historic seller performance so they aren’t locked into particular marketplaces.
+
+---
+
+
+**Public Market** is restoring the Commercial Commons by building 
+an open, transparent, and competitive architecture 
+for marketplace eCommerce.
+
+**eCommerce Is Broken**
+
+In less than two decades, a handful of private eCommerce platforms 
+have grown to account for over half of online retail sales. 
+The exorbitant fees and commissions they charge force sellers 
+to drive up prices, ultimately hurting consumers.
+
+**A Decentralized Alternative**
+
+We’re leveraging blockchain technology to replace these closed, private, 
+rent-extracting intermediaries with an open architecture and 
+protocol for eCommerce. The Public Market protocol radically lowers costs for both buyers and sellers while requiring no tradeoffs with regards to convenience or risk.
+
+
+---
+
+<p align="center">
+  <img src=".github/PMFP.png?raw=true" alt="PMF Protocol"/>
+</p>
+
+---
+
+## Information
+
+This is just a "mirror" while we are in initial development. - We don't work with pull requests on GitHub at this time but will in the near future. Please contact us at team@publicmarket.io if you would like to contribute. We welcome inquiries with @mention to an admin on our [Telegram Group](https://t.me/publicmrkt)
 
 ## Technical Details
 
