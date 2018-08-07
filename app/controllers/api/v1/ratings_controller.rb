@@ -20,7 +20,8 @@ module Api
           api_user: auth_user,
           sender: sender,
           receiver: receiver,
-          value: rating_attrs[:value]
+          value: rating_value,
+          review: rating_review
         )
 
         if rating.save
@@ -32,7 +33,7 @@ module Api
 
       def update
         if @rating && @rating.api_user == auth_user
-          @rating.modify!(rating_attrs[:value])
+          @rating.modify!(rating_value, rating_review)
           render json: serialize(@rating), status: :ok
         else
           render json: {}, status: :not_found
@@ -51,7 +52,15 @@ module Api
 
       def rating_params
         params.require(:data).permit(:type,
-                                     attributes: %i[sender receiver value])
+                                     attributes: %i[sender receiver value review])
+      end
+
+      def rating_value
+        rating_attrs[:value]
+      end
+
+      def rating_review
+        rating_attrs[:review].presence
       end
 
       def rating_attrs

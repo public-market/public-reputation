@@ -26,11 +26,19 @@ RSpec.describe 'Reputations API', type: :request do
 
     context 'when all ratings with modifications' do
       let(:new_receiver) { create(:receiver) }
-      let!(:modified_ratings) { create_list(:rating, 2, receiver: new_receiver, value: -1, modification: 1) }
+      let!(:modified_ratings) { create_list(:rating, 2, receiver: new_receiver, value: 1, modification: mod) }
       let(:uid) { new_receiver.uid }
+      let(:mod) { -1 }
 
       it { expect(response).to have_http_status(200) }
       it { expect(json['data']['attributes']).to include('ratings' => 2, 'score' => nil) }
+
+      context 'when all modifications are the same as original values' do
+        let(:mod) { 1 }
+
+        it { expect(response).to have_http_status(200) }
+        it { expect(json['data']['attributes']).to include('ratings' => 2, 'score' => 1) }
+      end
     end
   end
 end

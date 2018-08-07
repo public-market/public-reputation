@@ -9,7 +9,7 @@ class ReputationSerializer
   end
 
   attribute :score do |receiver|
-    ratings = receiver.ratings.where(modification: nil)
+    ratings = receiver.ratings.where('modification is null or modification = value')
     if ratings.count.zero?
       nil
     else

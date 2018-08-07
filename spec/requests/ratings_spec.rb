@@ -86,11 +86,13 @@ RSpec.describe 'Ratings API', type: :request do
     context 'when sender and receiver are known' do
       let(:sender) { create :sender }
       let(:receiver) { create :receiver }
-      let(:attributes) { { sender: sender.uid, receiver: receiver.uid, value: 1 } }
+      let(:review) { 'some review' }
+      let(:attributes) { { sender: sender.uid, receiver: receiver.uid, value: 1, review: review } }
 
       it { expect(response).to have_http_status(201) }
       it { expect(subject.receiver).to eq(receiver) }
       it { expect(subject.sender).to eq(sender) }
+      it { expect(subject.review).to eq(review) }
     end
   end
 
@@ -137,6 +139,22 @@ RSpec.describe 'Ratings API', type: :request do
 
       it { expect(response).to have_http_status(200) }
       it { expect(subject.modification).to be_blank }
+    end
+
+    context 'when update rating' do
+      let(:attributes) { { value: -1, review: 'some review' } }
+
+      it { expect(response).to have_http_status(200) }
+      it { expect(subject.modification).to eq(attributes[:value]) }
+      it { expect(subject.review).to eq(attributes[:review]) }
+    end
+
+    context 'when update rating with empty' do
+      let(:attributes) { { value: -1, review: ' ' } }
+
+      it { expect(response).to have_http_status(200) }
+      it { expect(subject.modification).to eq(attributes[:value]) }
+      it { expect(subject.review).to eq(rating.review) }
     end
   end
 end

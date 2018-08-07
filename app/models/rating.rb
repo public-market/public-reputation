@@ -10,9 +10,9 @@ class Rating < ApplicationRecord
 
   validates :value, presence: true
 
-  def modify!(new_value)
+  def modify!(new_value, new_review = nil)
     return if new_value.blank?
 
-    update(modification: new_value)
+    update(modification: new_value, review: new_review || review)
   end
 end

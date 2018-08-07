@@ -4,5 +4,6 @@ FactoryBot.define do
     sender
     receiver
     value { 1 }
+    review 'review'
   end
 end
