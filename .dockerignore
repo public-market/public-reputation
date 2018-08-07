@@ -6,7 +6,6 @@
 
 .codeclimate.yml
 .gitlab-ci.yml
-.rspec
 .rubocop.yml
 
 .git
@@ -17,4 +16,3 @@ db/*.sqlite3
 db/*.sqlite3-journal
 tmp
 log/*
-spec

@@ -27,7 +27,6 @@ rspec:
     - postgres:10.1-alpine
   cache:
     paths:
-      - vendor/bundle
       - cc-test-reporter
   variables:
     POSTGRES_DB: global_reputation_test
@@ -36,6 +35,7 @@ rspec:
     RAILS_ENV: test
   before_script:
     # setup codeclimate test reporter
+    - bundle config --local path /app/vendor/bundle
     - wget -nc -O ./cc-test-reporter https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 || true
     - chmod +x ./cc-test-reporter
     - ./cc-test-reporter before-build
@@ -47,7 +47,11 @@ rspec:
 
 deploy:
   stage: deploy
+  tags:
+    - build
   image: docker:latest
+  variables:
+    GIT_STRATEGY: none
   before_script:
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN registry.gitlab.com
   script:
