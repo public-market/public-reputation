@@ -4,7 +4,7 @@ EXPOSE 3000
 
 WORKDIR /app
 
-ENV BUNDLER_VERSION=1.16.1
+ENV BUNDLER_VERSION=1.16.3
 RUN gem install bundler --no-ri --no-rdoc -v "$BUNDLER_VERSION"
 
 COPY Gemfile /app
