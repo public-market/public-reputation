@@ -18,7 +18,7 @@ RSpec.describe 'Ratings API', type: :request do
       it { expect(json).to include('data') }
       it { expect(json['data']).to include('id' => uid, 'type' => 'rating') }
       it { expect(json['data']).to include('attributes') }
-      it { expect(json['data']['attributes']).to include('sender', 'receiver', 'value', 'modification', 'created_at') }
+      it { expect(json['data']['attributes']).to include('sender', 'receiver', 'value', 'modification', 'created_at', 'review') }
     end
   end
 

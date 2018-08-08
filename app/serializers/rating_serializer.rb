@@ -2,7 +2,7 @@ class RatingSerializer
   include FastJsonapi::ObjectSerializer
 
   set_id :uid
-  attributes :value, :modification, :created_at
+  attributes :value, :modification, :created_at, :review
 
   attribute :sender do |rating|
     rating.sender.uid
