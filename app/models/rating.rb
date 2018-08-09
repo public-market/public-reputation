@@ -9,6 +9,7 @@ class Rating < ApplicationRecord
   belongs_to :receiver
 
   validates :value, presence: true
+  validates :review, length: { maximum: 400 }
 
   def modify!(new_value, new_review = nil)
     return if new_value.blank?

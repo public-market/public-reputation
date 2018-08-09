@@ -93,6 +93,14 @@ RSpec.describe 'Ratings API', type: :request do
       it { expect(subject.receiver).to eq(receiver) }
       it { expect(subject.sender).to eq(sender) }
       it { expect(subject.review).to eq(review) }
+
+      context 'when review is too big' do
+        let(:review) {  (0..500).map { 'a' }.join }
+
+        it { expect(response).to have_http_status(422) }
+        it { expect(json).to include('errors') }
+        it { expect(json.dig('errors', 0, 'source', 'pointer')).to match('review') }
+      end
     end
   end
 
