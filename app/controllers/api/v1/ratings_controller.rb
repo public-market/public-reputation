@@ -33,8 +33,11 @@ module Api
 
       def update
         if @rating && @rating.api_user == auth_user
-          @rating.modify!(rating_value, rating_review)
-          render json: serialize(@rating), status: :ok
+          if @rating.modify!(rating_value, rating_review)
+            render json: serialize(@rating), status: :ok
+          else
+            respond_with_errors(@rating)
+          end
         else
           render json: {}, status: :not_found
         end

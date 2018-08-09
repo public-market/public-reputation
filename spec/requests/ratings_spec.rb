@@ -1,4 +1,6 @@
 RSpec.describe 'Ratings API', type: :request do
+  let(:big_review) { (0..500).map { 'a' }.join }
+
   describe 'GET /ratings/:id' do
     let!(:rating) { create(:rating) }
 
@@ -95,7 +97,7 @@ RSpec.describe 'Ratings API', type: :request do
       it { expect(subject.review).to eq(review) }
 
       context 'when review is too big' do
-        let(:review) {  (0..500).map { 'a' }.join }
+        let(:review) {  big_review }
 
         it { expect(response).to have_http_status(422) }
         it { expect(json).to include('errors') }
@@ -145,8 +147,9 @@ RSpec.describe 'Ratings API', type: :request do
     context 'when no value provided' do
       let(:attributes) { {} }
 
-      it { expect(response).to have_http_status(200) }
+      it { expect(response).to have_http_status(422) }
       it { expect(subject.modification).to be_blank }
+      it { expect(json).to include('errors') }
     end
 
     context 'when update rating' do
@@ -163,6 +166,16 @@ RSpec.describe 'Ratings API', type: :request do
       it { expect(response).to have_http_status(200) }
       it { expect(subject.modification).to eq(attributes[:value]) }
       it { expect(subject.review).to eq(rating.review) }
+    end
+
+    context 'when review is too big' do
+      let(:attributes) { { value: -1, review: big_review } }
+
+      it { expect(response).to have_http_status(422) }
+      it { expect(subject.modification).to be_nil }
+      it { expect(subject.review).to eq(rating.review) }
+      it { expect(json).to include('errors') }
+      it { expect(json.dig('errors', 0, 'source', 'pointer')).to match('review') }
     end
   end
 end
